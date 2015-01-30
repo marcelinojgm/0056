@@ -9,7 +9,7 @@ public class Club
 {
     private ArrayList<Membership> members; 
     // Define any necessary fields here ...
-    
+
     /**
      * Constructor for objects of class Club
      */
@@ -36,4 +36,38 @@ public class Club
     {
         return this.members.size();
     }
+
+    /** 
+     * Calcula el numero de socios que se dieron de alta en un mes determinado. 
+     * El año no nos importa. En caso de que el parametro contenga un valor 
+     * no valido se muestra por pantalla el error.
+     * @param month El mes en el que estamos interesados
+     * @return El numero de socios que se dieron de alta dicho mes
+     */
+    public int joinedMonth(int mes)
+    {
+        int joinedMonth = 0;
+
+        //valor del mes introducido correcto
+        if(mes > 0 && mes <= 12)
+        {
+            int index = 0;
+            int numMembers = members.size();
+            while(index < numMembers)
+            {
+                if(members.get(index).getMonth()== mes)
+                {
+                    joinedMonth++;
+                }
+                index++;
+            }
+            
+        }
+        else
+        {
+            System.out.println("valor introducido no valido");
+        }
+        return joinedMonth;
+    }
 }
+
